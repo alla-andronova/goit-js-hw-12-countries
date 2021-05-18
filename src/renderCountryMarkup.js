@@ -1,8 +1,7 @@
 import countryCardTpl from './templates/country-card.hbs';
 import countryListTpl from './templates/country-list.hbs';
 
-import showAlertManyCountries from './alertToManyCountries';
-import showAlertNotFound from './alertNotFound';
+import { showAlertManyCountries, showAlertNotFound } from './alerts';
 
 const renderCountryMarkup = countries => {
   if (countries.length === 1) {
