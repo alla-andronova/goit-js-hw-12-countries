@@ -1,0 +1,18 @@
+<div class="city-card">
+    <p class="city-card-name"></p>
+    <ul>
+        <li class="city-card-list-item">Capital: {{name}}</li><br>
+        <li class="city-card-list-item">Population: {{population}}</li><br>
+        <li class="city-card-list-item">Languages:
+
+            {{#each languages}}
+            <ul class="city-card-list">
+                <br>
+                <li>{{name}}</li>
+            </ul>
+            {{/each}}
+
+        </li>
+    </ul>
+    <img src="{{flag}}" alt="flag of {{name}}" width="600px">
+</div>
