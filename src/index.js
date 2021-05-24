@@ -3,6 +3,8 @@ import './sass/main.scss';
 import fetchCountries from './fetchCountries';
 import renderCountryMarkup from './renderCountryMarkup';
 
+import { showAlertNotFound } from './alerts';
+
 import debounce from 'lodash.debounce';
 
 const onCountryInput = e => {
@@ -12,9 +14,14 @@ const onCountryInput = e => {
 
   if (inputValue !== '') {
     fetchCountries(inputValue)
-      .then(renderCountryMarkup)
+      .then(res => {
+        if (res.status === 404) {
+          throw res;
+        }
+        renderCountryMarkup(res);
+      })
       .catch(error => {
-        console.log(error);
+        showAlertNotFound();
       });
   }
 };
